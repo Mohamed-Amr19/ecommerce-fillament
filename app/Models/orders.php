@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class orders extends Model
 {
@@ -17,6 +19,6 @@ class orders extends Model
 
     public function order_items(): HasMany
     {
-        return $this->hasMany(order_items::class);
+        return $this->hasMany(order_item::class);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class products extends Model
 {
@@ -17,18 +18,18 @@ class products extends Model
     }
     public function order_items(): HasMany
     {
-        return $this->hasMany(order_items::class);
+        return $this->hasMany(order_item::class);
     }
 
     public function getimage()
     {
-        
+
         if(str_starts_with($this->image, 'http'))
         {
-            
+
             return $this->image;
         }
-        
+
         return '/storage/'.$this->image;
     }
 }
